@@ -13,7 +13,7 @@ def isSafe(current, available, need, window):
         found = False
         for i in range(len(current)):
             if not finish[i] and np.all(
-                need[i] <= work
+                    need[i] <= work
             ):  # checks if the maximum is less than the work aka available resources
                 found = True
                 finish[i] = True
@@ -43,7 +43,7 @@ def requestRes(PID, request, available, current, need, window):
     request = np.array(request, dtype=int)
     if np.all(request <= need[PID]):
         if np.all(
-            request <= available
+                request <= available
         ):  # Temporarily allocate the requested # resources to the process
             current[PID] += request
             available -= request
@@ -90,6 +90,7 @@ def main():
     # 3 processes and 3 resources m = resources n = processes
     layout = [  # [sg.Text('Total Resources'), sg.InputText()],
         [sg.Text("Available Resources"), sg.InputText()],
+        [sg.Text("Total Resources"), sg.InputText()],
         [
             sg.Text(
                 "Enter maximum resources that can be allocated to each process: (Please note that the process are "
@@ -116,12 +117,13 @@ def main():
         event, values = window.read()
         if event == "Submit":
             available_resources = values[0].split(",")
+            total_resources = values[1].split(",")
             maximum = [[values[(i, j)] for j in range(3)] for i in range(3)]
             current = [[values[(i + 3, j)] for j in range(3)] for i in range(3)]
             maximum = np.array(maximum, dtype=int)
             current = np.array(current, dtype=int)
             available_resources = np.array(available_resources, dtype=int)
-            pid = values[1]
+            pid = values[2]
             pid = int(pid)
             request = values[2].split(",")
 
@@ -129,7 +131,7 @@ def main():
             updateLog(f"Necessary resources for each process: {need}", window)
             requestRes(pid, request, available_resources, current, need, window)
         if (
-            event == sg.WIN_CLOSED or event == "Cancel"
+                event == sg.WIN_CLOSED or event == "Cancel"
         ):  # if user closes window or clicks cancel
             break
 
