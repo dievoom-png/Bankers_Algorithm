@@ -4,6 +4,7 @@ This is a Python program that simulates the Banker's Algorithm, which is a deadl
 
 The program takes the following inputs:
 
+- The number of the total resources
 - The number of available resources of each type
 - The maximum number of resources of each type that can be allocated to each process
 - The current allocation of resources to each process
