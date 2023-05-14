@@ -24,8 +24,7 @@ The program was implemented using the PySimpleGUI library to create a simple gra
 To use this program, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Install the required dependencies by running `pip install -r requirements.txt` in the command line.
-3. Run the program by running `python banker_algorithm.py` in the command line.
-4. Enter the necessary inputs in the GUI and click the "Submit" button to run the simulation.
-5. View the program's output in the "Logs" section of the GUI.
+2. Run the program by running `python banker_algorithm.py` in the command line.
+3. Enter the necessary inputs in the GUI and click the "Submit" button to run the simulation.
+4. View the program's output in the "Logs" section of the GUI.
 
